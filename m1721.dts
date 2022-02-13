@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: GPL-2.0-only
+
+/dts-v1/;
+
+/ {
+	// This is used by the bootloader to find the correct DTB
+	qcom,msm-id = <293 0x0>; // MSM8953
+	qcom,board-id= <0x0b 0>;
+
+	model = "Meizu M6 Note";
+	compatible = "meizu,m1721", "qcom,msm8953";
+	
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	// The bootloader gets really sad if it cannot find those nodes
+	chosen { };
+
+	memory@0 {
+		device_type = "memory";
+		/* We expect the bootloader to fill in the reg */
+		reg = <0 0 0 0>;
+	};
+};
